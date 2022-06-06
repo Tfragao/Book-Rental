@@ -31,37 +31,39 @@ public class DaoBookMemory implements DaoBook {
 
 	@Override
 	public Iterable<Book> getAllBooks() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return books.values();
 	}
 
 	@Override
 	public Book getBooksById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return books.get(id);
 	}
 
 	@Override
 	public Book getBooksByIsbnNumber(String isbn) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return books.get(isbn);  //TODO : Pay attention to this warning
 	}
 
 	@Override
-	public void insert(Book object) {
-		// TODO Auto-generated method stub
+	public void insert(Book book) {
+		Long id = books.size() > 0 ? books.lastKey() + 1L : 1L;
+		book.setId(id);
+		books.put(book.getId(), book);
 		
 	}
 
 	@Override
-	public void modify(Book object) {
-		// TODO Auto-generated method stub
+	public void modify(Book book) {
+		books.put(book.getId(), book);
 		
 	}
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
+		books.remove(id);
 		
 	}
 	
