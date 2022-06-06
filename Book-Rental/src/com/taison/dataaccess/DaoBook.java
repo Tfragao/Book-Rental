@@ -1,5 +1,7 @@
 package com.taison.dataaccess;
 
-public interface DaoBook {
+import com.taison.entity.Book;
+
+public interface DaoBook extends Dao<Book> {
 
 }
